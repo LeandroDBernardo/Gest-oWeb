@@ -1,0 +1,15 @@
+@model eSportsMVCv1.Models.PartidaFormViewModel
+@{ ViewData["Title"] = "Schedule match"; }
+<h1>Schedule match</h1>
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="mb-3"><label asp-for="TorneioId" class="form-label">Tournament</label><select asp-for="TorneioId" class="form-select" asp-items="@(new SelectList(ViewBag.Torneios, "Id", "Nome"))"><option value="">Select a tournament</option></select></div>
+    <div class="mb-3"><label asp-for="Data" class="form-label"></label><input asp-for="Data" class="form-control" /></div>
+    <div class="mb-3"><label asp-for="IdEquipaA" class="form-label">Team A</label><select asp-for="IdEquipaA" class="form-select" asp-items="@(new SelectList(ViewBag.Equipas, "Id", "Nome"))"></select></div>
+    <div class="mb-3"><label asp-for="IdEquipaB" class="form-label">Team B</label><select asp-for="IdEquipaB" class="form-select" asp-items="@(new SelectList(ViewBag.Equipas, "Id", "Nome"))"></select></div>
+    <button class="btn btn-primary">Schedule</button> <a asp-action="Index">Back</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

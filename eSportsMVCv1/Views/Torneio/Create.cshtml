@@ -1,0 +1,9 @@
+@model eSportsMVCv1.Models.Torneio
+@{ ViewData["Title"] = "Create tournament"; }
+<h1>Create tournament</h1>
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <partial name="_Form" model="Model" />
+    <button class="btn btn-primary">Create</button> <a asp-action="Index">Back</a>
+</form>
+@section Scripts { <partial name="_ValidationScriptsPartial" /> }

@@ -1,0 +1,7 @@
+@model IEnumerable<eSportsMVCv1.Models.Equipa>
+@{ ViewData["Title"] = "Teams"; }
+<h1>Teams</h1>
+@if (User.Identity?.IsAuthenticated == true) { <p><a asp-action="Create" class="btn btn-primary">Create team</a></p> }
+<table class="table"><thead><tr><th>Name</th><th>Country</th><th>Manager</th><th></th></tr></thead><tbody>
+@foreach (var item in Model) { <tr><td>@item.Nome</td><td>@item.Pais</td><td>@item.Gestor?.FullName</td><td><a asp-action="Details" asp-route-id="@item.Id">Details</a> @if (User.IsInRole("Administrator") || item.GestorId == User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value) { <text> | <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | <a asp-action="Delete" asp-route-id="@item.Id">Delete</a></text> }</td></tr> }
+</tbody></table>

@@ -1,0 +1,3 @@
+@model IEnumerable<eSportsMVCv1.Models.TeamStandingViewModel>
+@{ ViewData["Title"] = "Standings"; }
+<h1>Standings - @ViewBag.Torneio.Nome</h1><table class="table"><thead><tr><th>Team</th><th>Played</th><th>Wins</th><th>Draws</th><th>Losses</th><th>Points</th></tr></thead><tbody>@foreach (var row in Model) { <tr><td>@row.Nome</td><td>@row.J</td><td>@row.V</td><td>@row.E</td><td>@row.D</td><td><strong>@row.Pontos</strong></td></tr>}</tbody></table>

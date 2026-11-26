@@ -1,0 +1,6 @@
+@model eSportsMVCv1.Models.Torneio
+<div class="mb-3"><label asp-for="CampeonatoId" class="form-label">Championship</label><select asp-for="CampeonatoId" class="form-select" asp-items="@(new SelectList(ViewBag.Campeonatos, "Id", "Nome"))"><option value="">Select a championship</option></select><span asp-validation-for="CampeonatoId" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Nome" class="form-label"></label><input asp-for="Nome" class="form-control" /><span asp-validation-for="Nome" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Jogo" class="form-label"></label><input asp-for="Jogo" class="form-control" /><span asp-validation-for="Jogo" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Estado" class="form-label"></label><select asp-for="Estado" class="form-select" asp-items="Html.GetEnumSelectList<eSportsMVCv1.Models.EstadoTorneio>()"></select></div>
+<div class="mb-3"><label class="form-label">Teams</label>@foreach (var equipa in ViewBag.Equipas) { var selected = ViewBag.SelectedTeamIds is not null && ViewBag.SelectedTeamIds.Contains(equipa.Id); <div class="form-check"><input class="form-check-input" type="checkbox" name="equipaIds" value="@equipa.Id" checked="@selected" id="team-@equipa.Id" /><label class="form-check-label" for="team-@equipa.Id">@equipa.Nome</label></div>}</div>

@@ -1,0 +1,3 @@
+@model IEnumerable<dynamic>
+@{ ViewData["Title"] = "Rankings"; }
+<h1>Rankings</h1><h2>Top 3 players</h2><ol>@foreach (var player in ViewBag.TopPlayers) { <li>@player.Nickname (@player.Equipa) - @player.Media.ToString("0.00")</li>}</ol><h2>Top teams</h2><ol>@foreach (var team in Model) { <li>@team.Name - @team.Average.ToString("0.00")</li>}</ol>

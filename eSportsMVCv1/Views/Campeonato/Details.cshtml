@@ -1,0 +1,3 @@
+@model eSportsMVCv1.Models.Campeonato
+@{ ViewData["Title"] = "Championship details"; }
+<h1>@Model.Nome</h1><p>Year: @Model.Ano</p><h2>Tournaments</h2><ul>@foreach (var torneio in Model.Torneios) { <li><a asp-controller="Torneio" asp-action="Details" asp-route-id="@torneio.Id">@torneio.Nome</a></li>}</ul><a asp-action="Index">Back</a>
